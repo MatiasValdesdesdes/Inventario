@@ -1,78 +1,114 @@
-import React from 'react'
-import {Link} from 'expo-router'
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Link } from "expo-router";
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 
-export default function index() {
+
+export default function Index() {
   return (
-<ScrollView>
-<View style={styles.contenedorprincipal}></View>
+    <ScrollView>
+      <View style={styles.contenedorprincipal}>
+        <View>
+          <Text style={styles.titulo}>Bienvenido</Text>
+          <Text
+            style={{
+              textAlign: "center",
+              fontSize: 45,
+              color: "purple",
+              marginTop: 15,
+              fontWeight: "bold",
+            }}
+          >
+            Login
+          </Text>
+        </View>
 
-    <View>
-      <Text style={styles.titulo}>Bien venido</Text>
-      <Text style={{textAlign:'center',fontSize:40, color:'purple'}}>Login</Text>
-    </View>
-    <View style={{marginTop:35}}>
-    <TextInput style={styles.input} placeholder='Usuario'/>
-    <TextInput style={styles.input} placeholder='Password'
-    secureTextEntry/>
-    </View>
+        <View style={{ marginTop: 50 }}>
+          <TextInput style={styles.input} placeholder="Usuario" />
 
- <View>
-  <View style={{flexDirection:'row', marginTop:20}}>
-      <TouchableOpacity style={styles.button1}>Login</TouchableOpacity>
-  </View>
-  <View>
-      <View style={{flexDirection:'row', marginTop:20}}>
-        <TouchableOpacity style={styles.button2}>Register</TouchableOpacity>
+          <TextInput
+            style={styles.input}
+            placeholder="Contraseña"
+            secureTextEntry={true}
+          />
+        </View>
+
+        <View
+          style={{ flexDirection: "row", margin: 20, justifyContent: "center" }}
+        >
+          <View style={styles.contenedorBoton}>
+            <TouchableOpacity style={styles.button1}>Login</TouchableOpacity>
+          </View>
+          <View style={styles.contenedorBoton}>
+            <TouchableOpacity style={styles.button2}>
+              Crear cuenta
+            </TouchableOpacity>
+          </View>
+        </View>
+        <Link href="/CrearCuenta">
+          <Text style={{ color: "blue", textAlign: "center", marginTop: 20 }}>
+            Crear cuenta
+          </Text>
+        </Link>
       </View>
-  </View>
-
-  <Link href="/crearcuenta">Crear cuenta</Link>
-</View>
-</ScrollView>
-  )
+    </ScrollView>
+  );
 }
 
-
 const styles = StyleSheet.create({
-  contenedorprincipal:{
-    marginTop:120,
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center',
-    },
-  titulo:{
-    fontSize:50,
-    textAlign:'center',
-    fontWeight:'bold',
+  contenedorprincipal: {
+    flex: 1,
   },
-  input:{
-    margin:8,
-    backgroundColor:'white',
-    fontSize:25,
-    borderRadius:8,
-    padding:6,
-    borderWidth:2,
-    borderColor:'purple',
+  titulo: {
+    fontSize: 60,
+    textAlign: "center",
+    fontWeight: "bold",
+    backgroundColor: "purple",
+    color: "white",
   },
-  contenedorbutton:{
-    marginTop:20,
-    padding:8
+  input: {
+    fontSize: 20,
+    margin: 15,
+    borderWidth: 0.5,
+    borderColor: "purple",
+    borderRadius: 10,
+    padding: 7,
+    backgroundColor: "white",
+    color: "gray",
   },
-  button1:{
-  backgroundColor:'purple',
-  color:'white',
-  padding:10,
-  borderRadius:30,
-  width:150,
-  textAlign:'center',  
+  contenedorBoton: {
+    borderRadius: 8,
+    padding: 10,
+    margin: 15,
+    width: 150,
+    alignItems: "center",
   },
-  button2:{
-  backgroundColor:'#9B7EBD',
-  color:'white',
-  padding:10,
-  borderRadius:30,
-  width:150,
-  textAlign:'center',  
+  button1: {
+    backgroundColor: "purple",
+    borderRadius: 30,
+    padding: 10,
+    margin: 15,
+    width: 150,
+    textAlign: "center",
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
   },
-})
+  button2: {
+    backgroundColor: "#9B7EBD",
+    borderRadius: 30,
+    padding: 10,
+    margin: 15,
+    width: 150,
+    textAlign: "center",
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+});
